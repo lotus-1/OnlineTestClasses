@@ -16,3 +16,5 @@ Project's action items:
 * When the user logs in, the app will set cookies, and when the user logs out, cookies will be powered of.<br>
 * JWT validation stands for JSON Web Token,  an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair us.<br>
 * The username and its password will be saved in our database.
+
+![](./img/20190609_130032.jpg)
