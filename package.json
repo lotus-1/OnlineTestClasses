@@ -14,7 +14,10 @@
     "nodemon": "^1.19.1"
   },
   "scripts": {
-    "test": "tape tests/test.js | tap-spec"
+    "test": "tape src/test.js| tap-spec",
+    "dev": "nodemon src/index.js -e js,hbs",
+    "start": "node src/index.js",
+    "server": "nodemon src/index.js
   },
   "repository": {
     "type": "git",
