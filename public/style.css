@@ -1,0 +1,27 @@
+body {
+  text-align: center;
+  background-image: url(/home/hodamansour/Lotus/week-8/OnlineTestClasses/assets/background.jpg);
+  background-repeat: no-repeat;
+    background-origin: fixed;
+    background-size: cover;
+    color: white;
+  }
+p{
+  font-size: 20px;
+}
+h1 {
+  font-size: 35px;
+  font-family: Georgia;
+}
+
+footer {
+  font-size: 22px;
+  margin-top: 30%;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-image: url(/home/hodamansour/Lotus/week-8/OnlineTestClasses/assets/download.jpeg);
+    text-align: center;
+    color: black;
+    }
