@@ -4,12 +4,15 @@
   "description": "Online test class by Enass Jasmine Loreen and Hoda",
   "main": "index.js",
   "dependencies": {
+    "supertest": "^4.0.2",
     "tap-spec": "^5.0.0",
     "tape": "^4.10.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
   "scripts": {
-    "test": "tape src/test.js| tap-spec"
+    "test": "tape tests/test.js | tap-spec"
   },
   "repository": {
     "type": "git",
