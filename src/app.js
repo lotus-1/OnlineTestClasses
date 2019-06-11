@@ -10,14 +10,14 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.disable('x-powered-by');
 app.set('views', path.join(__dirname, 'views'));
-app.set('views engine', 'hbs');
+app.set('view engine', 'hbs');
 
 app.engine(
   "hbs",
   exphbs({
     extname: "hbs",
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
-    partialsDir: path.join(__dirname, 'views', 'partial'),
+    partialsDir: path.join(__dirname, 'views', 'partials'),
     defaultLayout: 'main',
     helpers: {
      helpers: helpers,
