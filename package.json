@@ -1,5 +1,5 @@
 {
-  "name": "OnlineTestClasses",
+  "name": "onlinetestclasses",
   "version": "1.0.0",
   "description": "Online test class by Enass Jasmine Loreen and Hoda",
   "main": "index.js",
@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/lotus-1/OnlineTestClasses/issues"
   },
-  "homepage": "https://github.com/lotus-1/OnlineTestClasses#readme"
+  "homepage": "https://github.com/lotus-1/OnlineTestClasses#readme",
+  "directories": {
+    "test": "tests"
+  }
 }
