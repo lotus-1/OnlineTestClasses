@@ -1,6 +1,5 @@
 const express = require('express');
 const dataBase = require('./../model');
-const {class7, class8, class9} = require('../helpers/index');
 const  register = require('../views/register');
 const router = express.Router();
 
@@ -11,6 +10,14 @@ router.get('/', (req, res) => {
 router.get('/register', (req, res) => {
   res.render('register');
 });
+
+router.post('/register', (req, res) => {
+  res.render('register');
+});
+
+router.post('/login', (req, res) => {
+  res.render('login');
+})
 
 // router.get('/class-7', (req, res) => {
 //   res.render('class7');
