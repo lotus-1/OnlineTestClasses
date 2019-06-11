@@ -3,20 +3,26 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 
 const routes = require('./routes/index');
-const helpers = require('./views/helpers/index');
+const helpers = require('./helpers/index');
 
 const app = express();
 
-app.set('views', path.join(__dirname, 'veiws'));
-app.set('veiws engine', 'hbs');
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
+app.disable('x-powered-by');
+app.set('views', path.join(__dirname, 'views'));
+app.set('views engine', 'hbs');
+
 app.engine(
-  'hbs',
+  "hbs",
   exphbs({
-    extname: 'hbs',
-    layoutsDir: path.join(__dirname, 'veiws', 'layouts'),
-    partialsDir: path.join(__dirname, 'veiws', 'partial'),
+    extname: "hbs",
+    layoutsDir: path.join(__dirname, 'views', 'layouts'),
+    partialsDir: path.join(__dirname, 'views', 'partial'),
     defaultLayout: 'main',
-    helpers: helpers,
+    helpers: {
+     helpers: helpers,
+    }
   })
 );
 
