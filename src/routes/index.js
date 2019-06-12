@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
   res.render('home'), {
     title: 'home page',
-    username: 'user34'
+    username: 'user'
   }
 });
 
@@ -32,7 +32,7 @@ router.post('/login', validate(loginValidation), (req, res) => {
 router.get('/class-7', (req, res) => {
   res.render('seventhGrade'), {
     title: 'seventh grade',
-    username: username
+    username: dataBase
 
   };
 });
@@ -40,15 +40,15 @@ router.get('/class-7', (req, res) => {
 router.get('/class-8', (req, res) => {
   res.render('eightGrade'), {
     title: 'eight grade',
-    username: username
-  };
+    username: dataBase
+  }
 });
 
 router.get('/class-9', (req, res) => {
   res.render('ninethGrade'), {
     title: 'nineth grade',
-    username: username
-  }
+    username: dataBase
+  };
 });
 
 
