@@ -6,6 +6,7 @@ const { celebrate } = require('celebrate');
 const  register = require('../views/register');
 const validate = require('../helpers/validate');
 const { loginValidation, signupValidation } = require('../helpers/validation');
+const hashingPassword = require('../helpers/hashing');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -15,7 +16,7 @@ router.get('/', (req, res) => {
   }
 });
 
-router.get('/register', (req, res) => {
+router.get('/register',validate(signupValidation), (req, res) => {
   res.render('register');
 });
 
