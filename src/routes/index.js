@@ -4,11 +4,16 @@ const  register = require('../views/register');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('home');
+  res.render('home'), {
+    title: 'home page',
+    username: 'user34'
+  }
 });
 
 router.get('/register', (req, res) => {
-  res.render('register');
+  res.render('register'), {
+    title: 'register'
+  };
 });
 
 router.post('/register', (req, res) => {
@@ -19,17 +24,27 @@ router.post('/login', (req, res) => {
   res.render('login');
 })
 
-// router.get('/class-7', (req, res) => {
-//   res.render('class7');
-// });
-//
-// router.get('/class-8', (req, res) => {
-//   res.render('class8');
-// });
-//
-// router.get('/class-9', (req, res) => {
-//   res.render('class9')
-// });
+router.get('/class-7', (req, res) => {
+  res.render('seventhGrade'), {
+    title: 'seventh grade',
+    username: username
+
+  };
+});
+
+router.get('/class-8', (req, res) => {
+  res.render('eightGrade'), {
+    title: 'eight grade',
+    username: username
+  };
+});
+
+router.get('/class-9', (req, res) => {
+  res.render('ninethGrade'), {
+    title: 'nineth grade',
+    username: username
+  }
+});
 
 
 module.exports = router;
