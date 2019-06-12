@@ -31,10 +31,11 @@ router.get('/login', (req, res) => {
   // res.redirect('/login')
 })
 
-router.post('/login', validate(loginValidation), (req, res) => {
-  res.render('login');
+router.post('/class', validate(loginValidation), (req, res) => {
+  res.render('class');
   // res.redirect('/login')
-  res.send('<h1>login completed successfully!!')
+  // res.send('<h1>login completed successfully!!')
+
 })
 
 //
@@ -60,15 +61,15 @@ router.post('/login', validate(loginValidation), (req, res) => {
 
 
 
-router.get('/class-7', (req, res) => {
+router.post('/seventhGrade', (req, res) => {
   res.render('seventhGrade');
 });
 
-router.get('/class-8', (req, res) => {
+router.post('/eightGrade', (req, res) => {
   res.render('eightGrade');
 });
 
-router.get('/class-9', (req, res) => {
+router.post('/ninethGrade', (req, res) => {
   res.render('ninethGrade');
 });
 
