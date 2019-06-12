@@ -6,7 +6,7 @@ const { celebrate } = require('celebrate');
 const  register = require('../views/register');
 const validate = require('../helpers/validate');
 const { loginValidation, signupValidation } = require('../helpers/validation');
-
+const hashingPassword = require('../helpers/hashing');
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -20,34 +20,56 @@ router.get('/register', validate(signupValidation), (req, res) => {
   res.render('register');
 });
 
-router.post('/register', (req, res) => {
-  res.render('register');
+router.post('/register', validate(signupValidation), (req, res) => {
+  // res.render('register');
+  res.send('<h1>Registration completed successfully!!')
+
 });
 
-router.post('/login', validate(loginValidation), (req, res) => {
-  res.render('class');
+router.get('/login', (req, res) => {
+  // res.render('login');
+  res.redirect('/login')
 })
 
-router.get('/class-7', (req, res) => {
-  res.render('seventhGrade'), {
-    title: 'seventh grade',
-    username: dataBase
+router.post('/login', validate(loginValidation), (req, res) => {
+  // res.render('login');
+  res.redirect('/login')
+  res.send('<h1>login completed successfully!!')
+})
 
-  };
+//
+// router.post('/login', function (req, res, next) {
+//
+//   // you might like to do a database look-up or something more scalable here
+//   if (req.body.uname && req.body.uname === 'user' && req.body.password && req.body.password === 'pass') {
+//     req.session.authenticated = true;
+//     res.redirect('/secure');
+//   } else {
+//     req.flash('error', 'Username and password are incorrect');
+//     res.redirect('/login');
+//   }
+//
+// });
+//
+// router.get('/logout', function (req, res, next) {
+//   delete req.session.authenticated;
+//   res.redirect('/');
+// });
+//
+// };
+
+
+
+router.get('/class-7', (req, res) => {
+  res.render('seventhGrade');
 });
 
 router.get('/class-8', (req, res) => {
-  res.render('eightGrade'), {
-    title: 'eight grade',
-    username: dataBase
-  }
+  res.render('eightGrade');
 });
 
 router.get('/class-9', (req, res) => {
-  res.render('ninethGrade'), {
-    title: 'nineth grade',
-    username: dataBase
-  };
+  res.render('ninethGrade');
 });
 
 
