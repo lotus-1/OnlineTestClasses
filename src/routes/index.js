@@ -21,19 +21,19 @@ router.get('/register', validate(signupValidation), (req, res) => {
 });
 
 router.post('/register', validate(signupValidation), (req, res) => {
-  // res.render('register');
-  res.send('<h1>Registration completed successfully!!')
+  res.render('register');
+  // res.send('<h1>Registration completed successfully!!')
 
 });
 
 router.get('/login', (req, res) => {
-  // res.render('login');
-  res.redirect('/login')
+  res.render('login');
+  // res.redirect('/login')
 })
 
 router.post('/login', validate(loginValidation), (req, res) => {
-  // res.render('login');
-  res.redirect('/login')
+  res.render('login');
+  // res.redirect('/login')
   res.send('<h1>login completed successfully!!')
 })
 
