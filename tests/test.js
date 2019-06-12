@@ -20,7 +20,7 @@ tape('All routes should return the expected result', t => {
 })
 
 tape('Adds a new student', t => {
-  const newStudent = { firstname: 'Alec', lastname: 'Lightwood', class: '7th grade', email: 'AlecLightwood@gmail.com' };
+  const newStudent = { student_id: 20076124, full_name: 'yosef hasan', email: 'yosef@gmail.com', password: 55555545 };
   request(app)
   .post(`/home/database/newStudent`)
   .send(newStudent)
@@ -32,18 +32,3 @@ tape('Adds a new student', t => {
     t.end();
   })
 })
-
-
-// test('Should add a new facster', t => {
-//   const facTwelver = { firstname: 'jason', surname: 'bourne', cohort: 12 };
-//   request(app)
-//     .post(`/v1/api/facster/new`)
-//     .send(facTwelver)
-//     .expect(201)
-//     .expect('Content-Type', /json/)
-//     .end((err, res) => {
-//       t.same(res.statusCode, 201, 'Status code is 201');
-//       t.error(err, 'No error');
-//       t.same(res.body[0].firstname, 'jason', 'Should add JSON bourne to FAC');
-//       t.end();
-//     });
