@@ -27,14 +27,15 @@ router.post('/register', validate(signupValidation), (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // res.render('login');
-  res.redirect('/login')
+  res.render('login');
+  // res.redirect('/login')
 })
 
 router.post('/class', validate(loginValidation), (req, res) => {
   res.render('class');
   // res.redirect('/login')
   // res.send('<h1>login completed successfully!!')
+
 })
 
 //
