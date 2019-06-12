@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
   }
 });
 
-router.get('/register',validate(signupValidation), (req, res) => {
+router.get('/register', validate(signupValidation), (req, res) => {
   res.render('register');
 });
 

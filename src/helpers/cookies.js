@@ -4,8 +4,7 @@ const app = express();
 
 app.use(cookieParser());
 
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
    res.cookie('name', 'express').send('cookie set');
+   return req.headers.cookie;
 });
-
-// console.log(document.cookie);
