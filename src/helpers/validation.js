@@ -5,9 +5,9 @@ const confirmPassword = document.getElementById('confirmPassword').value;
 var regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 registerForm.addEventListener('submit', event => {
-  // TODO: validate!
   event.preventDefault();
 
+const validation= ()=> {
   const para = document.createElement("p");
   registerForm.appendChild(para);
 
@@ -29,5 +29,7 @@ else if (password !== confirmPassword) {
 else {
   para.textContent = "";
 }
-
+}
 })
+
+module.exports = validation;
