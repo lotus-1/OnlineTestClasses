@@ -1,27 +1,51 @@
 body {
   text-align: center;
-  background-image: url(/home/hodamansour/Lotus/week-8/OnlineTestClasses/assets/background.jpg);
+  background-image: url(assets/homeBackground.jpg);
   background-repeat: no-repeat;
-    background-origin: fixed;
-    background-size: cover;
-    color: black;
-  }
+  background-size: cover;
+    }
 p{
   font-size: 20px;
 }
 h1 {
+  font-size: 60px;
+  font-family: fantasy;
+  color:  #2eb82e;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+h3, h2{
+  font-size: 50px;
+  text-shadow: 2px 2px 5px #00ff00;
+}
+p{
   font-size: 35px;
-  font-family: Georgia;
+  font-style: oblique;
+  text-shadow: 2px 2px 4px #000000
+}
+.fullName, .pass {
+  color: black;
+  font-size: 30px;
+}
+
+.logIn, .signUp{
+background-color: #555555;
+color: white;
+margin-bottom: 10px;
+}
+
+.fnInput, .passInput{
+margin-bottom: 10px;
 }
 
 footer {
   font-size: 22px;
-  margin-top: 30%;
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 600px) {
   body {
-    background-image: url(/home/hodamansour/Lotus/week-8/OnlineTestClasses/assets/download.jpeg);
+    background-image: url(assets/mediaQueries.jpg);
     text-align: center;
     color: black;
     }

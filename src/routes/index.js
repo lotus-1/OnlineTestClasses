@@ -35,6 +35,7 @@ router.post('/register', validate(signupValidation), (req, res) => {
 router.post('/class', validate(loginValidation), (req, res) => {
   res.render('class');
   // res.send('<h1>login completed successfully!!')
+
 })
 
 router.get('/seventhGrade', (req, res) => {
