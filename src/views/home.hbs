@@ -10,12 +10,14 @@
     </h2>
     </div>
     <section>
-      <label class="fullName" for="uname">Full name</label><br>
-      <input class="fnInput" type="text" placeholder="Enter your name" name="uname" required/><br>
-      <label class="pass" for="psw">Password</label><br>
-      <input class="passInput" type="password" placeholder="Enter Password" name="psw" required/><br>
+      
+      <label  id="sname" class="fullName">Student</label><br>
+      <input class="fnInput" type="text" placeholder="Enter your name" required/><br>
+      <label id="password" class="pass">Password</label><br>
+      <input class="passInput" type="password" placeholder="Enter Password" required/><br>
       <form action="./class" method="post">
         <button class="logIn" type="submit">Login</button>
+      
       </form>
       <form action="./register" method="post">
         <button class="signUp" type="submit">Sign Up</button>

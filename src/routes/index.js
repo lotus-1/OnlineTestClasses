@@ -22,14 +22,17 @@ router.get('/register', validate(signupValidation), (req, res) => {
 
 router.post('/register', validate(signupValidation), (req, res) => {
   res.render('register');
+  // res.send('<h1>Welcome to the club!</h1>');
   // res.send('<h1>Registration completed successfully!!')
 
 });
+
 
 router.get('/login', (req, res) => {
   res.render('login');
   // res.redirect('/login')
 })
+
 
 router.post('/class', validate(loginValidation), (req, res) => {
   res.render('class');
@@ -60,16 +63,25 @@ router.post('/class', validate(loginValidation), (req, res) => {
 // };
 
 
-
-router.post('/seventhGrade', (req, res) => {
+router.get('/class/seventhGrade', (req, res) => {
   res.render('seventhGrade');
 });
-
-router.post('/eightGrade', (req, res) => {
+router.post('/class/seventhGrade', (req, res) => {
+  res.render('seventhGrade');
+});
+router.get('/class/eightGrade', (req, res) => {
   res.render('eightGrade');
 });
 
-router.post('/ninethGrade', (req, res) => {
+router.post('/class/eightGrade', (req, res) => {
+  res.render('eightGrade');
+});
+
+router.get('/class/ninethGrade', (req, res) => {
+  res.render('ninethGrade');
+});
+
+router.post('/class/ninethGrade', (req, res) => {
   res.render('ninethGrade');
 });
 
