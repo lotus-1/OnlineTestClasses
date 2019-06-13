@@ -9,10 +9,17 @@ const { loginValidation, signupValidation } = require('../helpers/validation');
 const hashingPassword = require('../helpers/hashing');
 const router = express.Router();
 const getData  = require('../database/queries/getData');
-
+const cookieParser = require('cookie-parser');
+const app = express();
 //
 // router.use(bodyParser.json());
 // router.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.get('/', (req, res) => {
+   res.cookie('logged_in', true, { HttpOnly, 'Max-Age': 9000 });
+   console.log(req.headers.cookie);
+});
 
 
 router.get('/', (req, res) => {
