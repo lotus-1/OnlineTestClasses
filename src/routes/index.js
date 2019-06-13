@@ -29,6 +29,9 @@ router.get('/', (req, res) => {
   }
 });
 
+router.post('/', (req, res) => {
+  res.redirect('/class')
+})
 router.get('/students', (req,res) => {
  getData((err, result) => {
     if (err) return err;
@@ -46,40 +49,10 @@ router.post('/register', validate(signupValidation), (req, res) => {
 });
 
 
-router.get('/login', (req, res) => {
-  res.render('login');
-  // res.redirect('/login')
-})
-
-
 router.post('/class', validate(loginValidation), (req, res) => {
   res.render('class');
-  // res.redirect('/login')
-  // res.send('<registerregisterh1>login completed successfully!!')
 
 })
-
-//
-// router.post('/login', function (req, res, next) {
-//
-//   // you might like to do a database look-up or something more scalable here
-//   if (req.body.uname && req.body.uname === 'user' && req.body.password && req.body.password === 'pass') {
-//     req.session.authenticated = true;
-//     res.redirect('/secure');
-//   } else {
-//     req.flash('error', 'Username and password are incorrect');
-//     res.redirect('/login');
-//   }
-//
-// });
-//
-// router.get('/logout', function (req, res, next) {
-//   delete req.session.authenticated;
-//   res.redirect('/');
-// });
-//
-// };
-
 
 router.get('/seventhGrade', (req, res) => {
   res.render('seventhGrade');
