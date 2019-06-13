@@ -2,7 +2,6 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
 const routes = require('./routes/index');
-const helpers = require('./helpers/cookies');
 
 const app = express();
 
@@ -19,8 +18,8 @@ app.engine(
     layoutsDir: path.join(__dirname, 'views', 'layouts'),
     partialsDir: path.join(__dirname, 'views', 'partials'),
     defaultLayout: 'main',
-    helpers: {
-     helpers: helpers,
+    routes: {
+     routes: routes,
     }
   })
 );
