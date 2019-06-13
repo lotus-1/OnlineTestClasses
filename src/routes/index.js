@@ -8,6 +8,12 @@ const validate = require('../helpers/validate');
 const { loginValidation, signupValidation } = require('../helpers/validation');
 const hashingPassword = require('../helpers/hashing');
 const router = express.Router();
+const getData  = require('../database/queries/getData');
+
+//
+// router.use(bodyParser.json());
+// router.use(bodyParser.urlencoded({ extended: false }));
+
 
 router.get('/', (req, res) => {
   res.render('home'), {
@@ -16,15 +22,20 @@ router.get('/', (req, res) => {
   }
 });
 
+router.get('/students', (req,res) => {
+ getData((err, result) => {
+    if (err) return err;
+    res.json(result)
+  });
+});
+
+
 router.get('/register', validate(signupValidation), (req, res) => {
   res.render('register');
 });
 
 router.post('/register', validate(signupValidation), (req, res) => {
   res.render('register');
-  // res.send('<h1>Welcome to the club!</h1>');
-  // res.send('<h1>Registration completed successfully!!')
-
 });
 
 
@@ -37,7 +48,7 @@ router.get('/login', (req, res) => {
 router.post('/class', validate(loginValidation), (req, res) => {
   res.render('class');
   // res.redirect('/login')
-  // res.send('<h1>login completed successfully!!')
+  // res.send('<registerregisterh1>login completed successfully!!')
 
 })
 

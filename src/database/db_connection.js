@@ -3,7 +3,7 @@ const url = require('url');
 require('dotenv').config();
 
 
-//important! Below we specify what value of DB_URL should be depending on whether it's a test environment or not
+//important! Below we specify3000 what value of DB_URL should be depending on whether it's a test environment or not
 //in package.json we specified script for testing: NODE_ENV=test node tests/test.js
 let DB_URL = process.env.DB_URL;
 if (process.env.NODE_ENV === "testDB") {
