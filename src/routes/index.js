@@ -9,10 +9,17 @@ const { loginValidation, signupValidation } = require('../helpers/validation');
 const hashingPassword = require('../helpers/hashing');
 const router = express.Router();
 const getData  = require('../database/queries/getData');
-
+const cookieParser = require('cookie-parser');
+const app = express();
 //
 // router.use(bodyParser.json());
 // router.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+
+app.get('/', (req, res) => {
+   res.cookie('logged_in', true, { HttpOnly, 'Max-Age': 9000 });
+   console.log(req.headers.cookie);
+});
 
 
 router.get('/', (req, res) => {
@@ -74,25 +81,25 @@ router.post('/class', validate(loginValidation), (req, res) => {
 // };
 
 
-router.get('/class/seventhGrade', (req, res) => {
+router.get('/seventhGrade', (req, res) => {
   res.render('seventhGrade');
 });
-router.post('/class/seventhGrade', (req, res) => {
+router.post('/seventhGrade', (req, res) => {
   res.render('seventhGrade');
 });
-router.get('/class/eightGrade', (req, res) => {
+router.get('/eightGrade', (req, res) => {
   res.render('eightGrade');
 });
 
-router.post('/class/eightGrade', (req, res) => {
+router.post('/eightGrade', (req, res) => {
   res.render('eightGrade');
 });
 
-router.get('/class/ninethGrade', (req, res) => {
+router.get('/ninethGrade', (req, res) => {
   res.render('ninethGrade');
 });
 
-router.post('/class/ninethGrade', (req, res) => {
+router.post('/ninethGrade', (req, res) => {
   res.render('ninethGrade');
 });
 
