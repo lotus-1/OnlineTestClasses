@@ -13,8 +13,8 @@ const cookieParser = require("cookie-parser");
 const app = express();
 //
 router.use(bodyParser.json());
-router.use(bodyParser.urlencoded({ extended: false }));
-router.use(cookieParser());
+// router.use(bodyParser.urlencoded({ extended: false }));
+// router.use(cookieParser());
 
 // router.get("/", (req, res) => {
 //   res.cookie("logged_in", true, { HttpOnly, "Max-Age": 9000 });
@@ -25,71 +25,34 @@ router.get("/", (req, res, next) => {
   res.render("home");
 });
 
-router.get("/students", (req, res) => {
-  getData((err, result) => {
-    if (err) return err;
-    res.json(result);
-  });
-});
 
-// router.get(
-//   "/register",
-//   validate(signupValidation),
-//   (req, res, next) => {
-//     res.render("register");
-//     next();
-//   },
-//   (req, res, next) => {
-//     res.redirect("/");
-//   }
-// );
-// router.get('/', (req, res) => {
-//   res.redirect('/home');
-// });
-// res.end();
 
-router.get("/register", (req, res) => {
-  res.render("register");
-  // res.redirect('/login');
+router.post("/register", validate(signupValidation), (req, res) => {
+  res.render(path.join(__dirname, "..", "views", "register"));
+//   res.redirect('/login');
 });
 
 router.post('/register', validate(signupValidation), (req, res) => {
-  console.log(req.body);
+  console.log('inside the register');
+  console.log('this is the pas', req.body.password);
+  console.log('this is the body', req.body);
   hashingPassword(req.body.password, (error, hashResult) => {
+
+    console.log('inside the register1');
     if (error) return error;
-    postData(req.body.fullname, hashResult, req.body.email, (err, hash) => {
+   postData(req.body.username, hashResult, req.body.email, (err, hash) => {
       if (err) return err;
       res.send('hiii i made registiration');
-      // res.render(path.join(__dirname, "..", "views", "home"));
     });
   });
 });
 
-router.post("/class", validate(loginValidation), (req, res) => {
+router.get("/class", validate(loginValidation), (req, res) => {
   res.render("class");
   // res.send('<registerregisterh1>login completed successfully!!')
 });
 
-//
-// router.post('/login', function (req, res, next) {
-//
-//   // you might like to do a database look-up or something more scalable here
-//   if (req.body.uname && req.body.uname === 'user' && req.body.password && req.body.password === 'pass') {
-//     req.session.authenticated = true;
-//     res.redirect('/secure');
-//   } else {
-//     req.flash('error', 'Username and password are incorrect');
-//     res.redirect('/login');
-//   }
-//
-// });
-//
-// router.get('/logout', function (req, res, next) {
-//   delete req.session.authenticated;
-//   res.redirect('/');
-// });
-//
-// };
+
 
 router.get("/seventhGrade", (req, res) => {
   res.render("seventhGrade");
@@ -113,4 +76,11 @@ router.post("/ninethGrade", (req, res) => {
   res.render("ninethGrade");
 });
 
+
+router.get("/students", (req, res) => {
+  getData((err, result) => {
+    if (err) return err;
+    res.json(result);
+  });
+});
 module.exports = router;
