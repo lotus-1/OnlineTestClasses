@@ -32,25 +32,16 @@ router.get("/students", (req, res) => {
   });
 });
 
-// router.get(
-//   "/register",
-//   validate(signupValidation),
-//   (req, res, next) => {
-//     res.render("register");
-//     next();
-//   },
-//   (req, res, next) => {
-//     res.redirect("/");
-//   }
-// );
-// router.get('/', (req, res) => {
-//   res.redirect('/home');
-// });
-// res.end();
 
-router.get("/register", (req, res) => {
-  res.render("register");
-  // res.redirect('/login');
+router.get('/register', (req, res) => {
+  res.render('register');
+});
+
+router.post('/register', validate(signupValidation), (req, res) => {
+  res.render(path.join(__dirname, '..', 'views','register'));
+  // document.getElementById('registerForm').onclick(() => {
+    // res.redirect('/');
+
 });
 
 router.post('/register', validate(signupValidation), (req, res) => {
@@ -84,12 +75,10 @@ router.post("/class", validate(loginValidation), (req, res) => {
 //
 // });
 //
-// router.get('/logout', function (req, res, next) {
+// router.get('/logout', (req, res) => {
 //   delete req.session.authenticated;
 //   res.redirect('/');
 // });
-//
-// };
 
 router.get("/seventhGrade", (req, res) => {
   res.render("seventhGrade");
@@ -112,5 +101,10 @@ router.get("/ninethGrade", (req, res) => {
 router.post("/ninethGrade", (req, res) => {
   res.render("ninethGrade");
 });
+
+router.get('/logout', (req, res) => {
+
+  res.redirect('/');
+})
 
 module.exports = router;
