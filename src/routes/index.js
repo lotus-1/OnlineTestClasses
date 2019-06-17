@@ -53,7 +53,7 @@ router.post('/register', (req, res) => {
 //   });
 // });
 
-router.get("/class", validate(loginValidation), (req, res) => {
+router.get("/class", (req, res) => {
   res.render("class");
   // res.send('<registerregisterh1>login completed successfully!!')
 });
