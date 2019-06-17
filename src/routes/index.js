@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
-const dataBase = require("./../model");
 const { celebrate } = require("celebrate");
 const register = require("../views/register");
 const validate = require("../helpers/validate");
