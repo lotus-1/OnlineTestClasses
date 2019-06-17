@@ -10,17 +10,16 @@ const router = express.Router();
 const getData = require("../database/queries/getData");
 const cookieParser = require("cookie-parser");
 const app = express();
-
+const postData = require("../database/queries/postData")
 router.use(bodyParser.json());
 
 // router.use(bodyParser.urlencoded({ extended: false }));
+
 app.use(cookieParser());
-
-app.get('/', (req, res) => {
-   res.cookie('logged_in', true, { HttpOnly, 'Max-Age': 9000 });
-   // console.log(req.headers.cookie);
+app.get("/", (req, res) => {
+  res.cookie("logged_in", true, { HttpOnly, "Max-Age": 9000 });
+  // console.log(req.headers.cookie);
 });
-
 
 // router.get("/", (req, res) => {
 //   res.cookie("logged_in", true, { HttpOnly, "Max-Age": 9000 });
@@ -31,27 +30,41 @@ router.get("/", (req, res, next) => {
   res.render("home");
 });
 
-router.get('/register', (req, res) => {
+router.get("/register", (req, res) => {
   res.render('register');
 });
 
-router.post('/register', (req, res) => {
-  res.render('register');
+router.post("/register", validate(signupValidation), (req, res) => {
+  // console.log("inside the register");
+  // console.log("this is the pas", req.body.password);
+  // console.log("this is the body", req.body);
+  // hashingPassword(req.body.password, (error, hashResult) => {
+  //   console.log("inside the register1");
+  //   if (error) return error;
+  //   postData(req.body.username, hashResult, req.body.email, (err, hash) => {
+  //     if (err) return err;
+  //     res.send("hiii i made registiration");
+  //   });
+  // });
+  console.log('req.body is:', req);
+  const { student, email, password, confirmpassword } = req.body;
+  if (password != confirmpassword) {
+    res.send("Password not match");
+  } else {
+    hashingPassword(password, (error, hashedPassword) => {
+      if (error) {
+        console.log(error);
+      } else {
+        postData(username, password, email, hashedPassword, (err, result) => {
+          if (err) {
+            console.log(err);
+          }
+          res.render(path.join(__dirname, "..", "views", "home"));
+        });
+      }
+    });
+  }
 });
-// router.post('/register', validate(signupValidation), (req, res) => {
-//   console.log('inside the register');
-//   console.log('this is the pas', req.body.password);
-//   console.log('this is the body', req.body);
-//   hashingPassword(req.body.password, (error, hashResult) => {
-//
-//     console.log('inside the register1');
-//     if (error) return error;
-//    postData(req.body.username, hashResult, req.body.email, (err, hash) => {
-//       if (err) return err;
-//       res.send('hiii i made registiration');
-//     });
-//   });
-// });
 
 router.get("/class", validate(loginValidation), (req, res) => {
   res.render("class");
@@ -62,7 +75,6 @@ router.post("/class", validate(loginValidation), (req, res) => {
   res.render("class");
   // res.send('<registerregisterh1>login completed successfully!!')
 });
-
 
 router.get("/seventhGrade", (req, res) => {
   res.render("seventhGrade");
@@ -86,7 +98,6 @@ router.post("/ninethGrade", (req, res) => {
   res.render("ninethGrade");
 });
 
-
 router.get("/students", (req, res) => {
   getData((err, result) => {
     if (err) return err;
@@ -94,9 +105,8 @@ router.get("/students", (req, res) => {
   });
 });
 
-router.get('/logout', (req, res) => {
-
-  res.redirect('/');
-})
+router.get("/logout", (req, res) => {
+  res.redirect("/");
+});
 
 module.exports = router;
