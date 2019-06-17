@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS studentcla;
 
 
 CREATE TABLE students (
-  student_id VARCHAR(20) PRIMARY KEY,
+  student_id SERIAL PRIMARY KEY NOT NULL,
   full_name VARCHAR(100) NOT NULL ,
   email VARCHAR(100) NOT NULL,
   password VARCHAR NOT NULL
