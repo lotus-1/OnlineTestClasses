@@ -11,14 +11,14 @@ const router = express.Router();
 const getData  = require('../database/queries/getData');
 const cookieParser = require('cookie-parser');
 const app = express();
-//
+
 // router.use(bodyParser.json());
 // router.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
    res.cookie('logged_in', true, { HttpOnly, 'Max-Age': 9000 });
-   console.log(req.headers.cookie);
+   // console.log(req.headers.cookie);
 });
 
 
@@ -100,6 +100,8 @@ router.get('/ninethGrade', (req, res) => {
 router.post('/ninethGrade', (req, res) => {
   res.render('ninethGrade');
 });
-
+router.get('/logout', (req, res) => {
+  res.redirect('/');
+})
 
 module.exports = router;
