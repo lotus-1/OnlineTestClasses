@@ -13,8 +13,15 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 router.use(bodyParser.json());
+
 // router.use(bodyParser.urlencoded({ extended: false }));
-// router.use(cookieParser());
+app.use(cookieParser());
+
+app.get('/', (req, res) => {
+   res.cookie('logged_in', true, { HttpOnly, 'Max-Age': 9000 });
+   // console.log(req.headers.cookie);
+});
+
 
 // router.get("/", (req, res) => {
 //   res.cookie("logged_in", true, { HttpOnly, "Max-Age": 9000 });
@@ -54,27 +61,6 @@ router.get("/class", validate(loginValidation), (req, res) => {
   // res.send('<registerregisterh1>login completed successfully!!')
 });
 
-
-
-
-//
-// router.post('/login', function (req, res, next) {
-//
-//   // you might like to do a database look-up or something more scalable here
-//   if (req.body.uname && req.body.uname === 'user' && req.body.password && req.body.password === 'pass') {
-//     req.session.authenticated = true;
-//     res.redirect('/secure');
-//   } else {
-//     req.flash('error', 'Username and password are incorrect');
-//     res.redirect('/login');
-//   }
-//
-// });
-//
-// router.get('/logout', (req, res) => {
-//   delete req.session.authenticated;
-//   res.redirect('/');
-// });
 
 
 router.get("/seventhGrade", (req, res) => {
