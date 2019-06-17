@@ -46,20 +46,22 @@ router.post("/register", validate(signupValidation), (req, res) => {
   //     res.send("hiii i made registiration");
   //   });
   // });
-  console.log('req.body is:', req);
-  const { student, email, password, confirmpassword } = req.body;
-  if (password != confirmpassword) {
+  console.log('req.body is: ', req.body);
+  const { username, email, pass, confirmPassword } = req.body;
+  if (pass != confirmPassword) {
     res.send("Password not match");
   } else {
-    hashingPassword(password, (error, hashedPassword) => {
+    hashingPassword(pass, (error, hashedPassword) => {
       if (error) {
         console.log(error);
       } else {
-        postData(username, password, email, hashedPassword, (err, result) => {
+        postData(username, email, hashedPassword, (err, result) => {
           if (err) {
             console.log(err);
+            res.send(err);
+          } else {
+            res.render("home");
           }
-          res.render(path.join(__dirname, "..", "views", "home"));
         });
       }
     });
