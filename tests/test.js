@@ -32,3 +32,15 @@ tape('Adds a new student', t => {
     t.end();
   })
 })
+
+
+tape('All routes should return the expected result', t => {
+  request(app)
+  .get('/home/7/Arabic-1/')
+  .expect(200)
+  .end((err, res) => {
+    t.error(err, 'No error');
+    t.equal(res.statusCode, 200, 'statusCode is 200');
+    t.end();
+  })
+})
