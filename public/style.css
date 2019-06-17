@@ -61,7 +61,7 @@ footer {
 
 @media screen and (max-width: 600px) {
   body {
-    background-image: url(assets/mediaQueries.jpg);
+    background-image: url(assets/mediaQueries.jpeg);
     text-align: center;
     color: black;
     }
