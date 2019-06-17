@@ -36,7 +36,7 @@ buildDatabase(function(err, res) {
 
 
 tape('Adds a new student', t => {
-  const newStudent = { firstname: 'Alec', lastname: 'Lightwood', class: '7th grade', email: 'AlecLightwood@gmail.com' };
+  const newStudent = {  };
   request(buildDatabase)
   .post(`/home/database/newStudent`)
   .send(newStudent)
@@ -48,20 +48,3 @@ tape('Adds a new student', t => {
     t.end();
   })
 })
-
-
-//
-// tape("PostData", t => {
-//   runDbBuild(function(err, res) {
-//     t.error(err, "No Error");
-//
-//     postData("Minesh", "London", (err, result) => {
-//       if (err) console.log(err);
-//       getData((err, result) => {
-//         if (err) console.log(err);
-//         t.deepEqual(result.length, 2, "Returns expected data");
-//         t.end();
-//       });
-//     });
-//   });
-// });
