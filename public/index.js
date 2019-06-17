@@ -16,10 +16,10 @@ function postData(url, cb, data = {}) {
 const button = document.getElementById('submitButton');
 button.addEventListener('click', (e) => {
   e.preventDefault();
-  const username = document.getElementById('sname').value;
-  const email = document.getElementById('email').value;
-  const pass = document.getElementById('password').value;
-  const confirmPassword = document.getElementById('confirmPassword').value;
+  var username = document.getElementById('sname').value;
+  var email = document.getElementById('email').value;
+  var pass = document.getElementById('password').value;
+  var confirmPassword = document.getElementById('confirmPassword').value;
 
   postData('/register', {
     sname,
