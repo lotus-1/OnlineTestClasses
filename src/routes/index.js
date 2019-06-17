@@ -31,35 +31,37 @@ router.get("/", (req, res, next) => {
   res.render("home");
 });
 
-
-
 router.get('/register', (req, res) => {
   res.render('register');
 });
 
-
-
-
-router.post('/register', validate(signupValidation), (req, res) => {
-  console.log('inside the register');
-  console.log('this is the pas', req.body.password);
-  console.log('this is the body', req.body);
-  hashingPassword(req.body.password, (error, hashResult) => {
-
-    console.log('inside the register1');
-    if (error) return error;
-   postData(req.body.username, hashResult, req.body.email, (err, hash) => {
-      if (err) return err;
-      res.send('hiii i made registiration');
-    });
-  });
+router.post('/register', (req, res) => {
+  res.render('register');
 });
+// router.post('/register', validate(signupValidation), (req, res) => {
+//   console.log('inside the register');
+//   console.log('this is the pas', req.body.password);
+//   console.log('this is the body', req.body);
+//   hashingPassword(req.body.password, (error, hashResult) => {
+//
+//     console.log('inside the register1');
+//     if (error) return error;
+//    postData(req.body.username, hashResult, req.body.email, (err, hash) => {
+//       if (err) return err;
+//       res.send('hiii i made registiration');
+//     });
+//   });
+// });
 
 router.get("/class", validate(loginValidation), (req, res) => {
   res.render("class");
   // res.send('<registerregisterh1>login completed successfully!!')
 });
 
+router.post("/class", validate(loginValidation), (req, res) => {
+  res.render("class");
+  // res.send('<registerregisterh1>login completed successfully!!')
+});
 
 
 router.get("/seventhGrade", (req, res) => {
@@ -83,7 +85,6 @@ router.get("/ninethGrade", (req, res) => {
 router.post("/ninethGrade", (req, res) => {
   res.render("ninethGrade");
 });
-
 
 
 router.get("/students", (req, res) => {
