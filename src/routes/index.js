@@ -11,7 +11,7 @@ const router = express.Router();
 const getData = require("../database/queries/getData");
 const cookieParser = require("cookie-parser");
 const app = express();
-//
+
 router.use(bodyParser.json());
 // router.use(bodyParser.urlencoded({ extended: false }));
 // router.use(cookieParser());

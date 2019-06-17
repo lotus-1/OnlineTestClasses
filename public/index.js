@@ -21,9 +21,9 @@ button.addEventListener('click', (e) => {
   const confirmPassword = document.getElementById('confirmPassword').value;
 
   postData('/register', {
-    sname,
+    username,
     email,
-    password,
+    pass,
     confirmPassword
   })
 })
