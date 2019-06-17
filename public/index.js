@@ -22,9 +22,9 @@ button.addEventListener('click', (e) => {
   var confirmPassword = document.getElementById('confirmPassword').value;
 
   postData('/register', {
-    sname,
+    username,
     email,
-    password,
+    pass,
     confirmPassword
   })
 })
