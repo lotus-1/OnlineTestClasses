@@ -5,16 +5,21 @@ require('dotenv').config();
 
 //important! Below we specify3000 what value of DB_URL should be depending on whether it's a test environment or not
 //in package.json we specified script for testing: NODE_ENV=test node tests/test.js
-let DB_URL = process.env.DB_URL;
-if (process.env.NODE_ENV === "testDB") {
-  DB_URL = process.env.TEST_DB_URL;
+let DB_URL;
+if (!process.env.DataBase_url) {
+  DB_URL = process.env.DB_URL;
+  console.log('not production', DB_URL);
+} else {
+  DB_URL = process.env.DataBase_url;
+  console.log('production', DB_URL);
 }
+
 
 
 if (!DB_URL)
   throw new Error('Enviroment variable DB_URL must be set');
 
-const params = url.parse(process.env.DB_URL);
+const params = url.parse(DB_URL);
 const [username, password] = params.auth.split(':');
 
 const options = {
