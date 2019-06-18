@@ -16,5 +16,6 @@ Project's action items:
 * We use joi validation for the login and the signUp files.<br>
 * The username and its password will be saved in our database.
 
+![](public/assets/9f2435b8-d672-4b89-9789-009cc83944bc.jpg)
 
 ![](public/assets/architecture.jpg)
