@@ -19,16 +19,4 @@ const buildDatabase = () => {
 
 buildDatabase();
 
-//
-//
-// const runDbBuild = cb => {
-//   dbConnection.query(sql, (err, res) => {
-//     if (err) return cb(err);
-//     cb(null, res);
-//   })
-// }
-//
-// module.exports = runDbBuild;
-
-
 module.exports = buildDatabase;
