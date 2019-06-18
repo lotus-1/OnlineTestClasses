@@ -9,24 +9,20 @@ const hashingPassword = require("../helpers/hashing");
 const router = express.Router();
 const getData = require("../database/queries/getData");
 const cookieParser = require("cookie-parser");
-const app = express();
-const postData = require("../database/queries/postData")
-router.use(bodyParser.json());
+// const app = express();
+const postData = require("../database/queries/postData");
+router.use(cookieParser());
 
+router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(cookieParser());
-app.get("/", (req, res) => {
-  res.cookie("logged_in", true, { HttpOnly, "Max-Age": 9000 });
-  // console.log(req.headers.cookie);
-});
 
 // router.get("/", (req, res) => {
 //   res.cookie("logged_in", true, { HttpOnly, "Max-Age": 9000 });
 //   console.log(req.headers.cookie);
 // });
 
-router.get("/", (req, res, next) => {
+router.get("/", (req, res) => {
   res.render("home");
 });
 
@@ -87,9 +83,9 @@ router.get("/class", (req, res) => {
   res.render("class");
 });
 
-// router.post("/class", validate(loginValidation), (req, res) => {
-//   res.render("class");
-// });
+router.post("/class", validate(loginValidation), (req, res) => {
+  res.render("class");
+});
 
 router.get("/seventhGrade", (req, res) => {
   res.render("seventhGrade");

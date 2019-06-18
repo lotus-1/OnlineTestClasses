@@ -31,13 +31,6 @@ INSERT INTO students (student_id, full_name,  email, password) VALUES
    student_name VARCHAR(100) NOT NULL
  );
 
-  -- CREATE TABLE class (
-  -- class_id VARCHAR(2) PRIMARY KEY,
-  --  class_teacher VARCHAR(100) NOT NULL,
-  --  FOREIGN KEY (student_id) REFERENCES students (student_id)
-  --  -- VARCHAR(100) NOT NULL
-  -- );
-
 
  INSERT INTO class (class_id, class_teacher,  student_name) VALUES
   ( 7 , 'doaa Masad', 'Enass Kmal');
@@ -52,9 +45,6 @@ CREATE TABLE studentcla (
  unique (student_id, class_id)
 );
 
-
--- student_id REFERENCES students(student_id),
--- class_id REFERENCES class(class_id)
 
   INSERT INTO studentcla (student_id, class_id) VALUES
    (20076678, 7);

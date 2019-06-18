@@ -4,7 +4,7 @@ Online test class by Enass Jasmine Loreen and Hoda
 Our web app gives the students simulation tests.
 
 We will have the following endpoints:<br>
-/signup => for the signup page<br>
+/register => for the signup page<br>
 /class => for the grades page<br>
 /seventhGrade => for the Arabic, Hebrew and English tests<br>
 /eightGrade => for the Arabic, Hebrew and English tests<br>
@@ -16,4 +16,5 @@ Project's action items:
 * We use joi validation for the login and the signUp files.<br>
 * The username and its password will be saved in our database.
 
-![](./img/20190609_130032.jpg)
+
+![](public/assets/architecture.jpg)
