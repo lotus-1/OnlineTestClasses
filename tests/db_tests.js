@@ -25,7 +25,6 @@ buildDatabase(function(err, res) {
     ];
 
     getData((err, result) => {
-      console.log("this inside the 2 test");
       if (err) console.log(err);
       t.deepEqual(result, expected, "Returns expected data");
       t.end();

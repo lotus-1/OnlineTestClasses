@@ -2,10 +2,10 @@ function postData(url,data) {
   fetch(url, {
     method: 'POST',
     body: JSON.stringify(data),
-    headers: {'Content-Type': 'application/json'    }
+    headers: {'Content-Type': 'application/json'}
   })
   .then(function(response){
-    return response.json();
+    return response;
   })
   .then (function(data) {
     console.log(data);
