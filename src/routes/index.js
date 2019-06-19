@@ -87,9 +87,9 @@ router.get("/class", (req, res) => {
   res.render("class");
 });
 
-// router.post("/class", validate(loginValidation), (req, res) => {
-//   res.render("class");
-// });
+router.post("/class", validate(loginValidation), (req, res) => {
+  res.render("class");
+});
 
 router.get("/seventhGrade", (req, res) => {
   res.render("seventhGrade");
